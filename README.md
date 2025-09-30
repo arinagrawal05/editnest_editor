@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 # EditNest 🎨
 
 A **lightweight, blazing-fast canvas editor** built with [Flutter](https://flutter.dev).

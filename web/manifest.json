@@ -1,6 +1,6 @@
 {
-    "name": "celebrare_editor",
-    "short_name": "celebrare_editor",
+    "name": "Editnest - A Web Editor",
+    "short_name": "Editnest",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

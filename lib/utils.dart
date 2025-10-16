@@ -6,13 +6,15 @@ import 'package:celebrare_editor/edit_class.dart';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart' as img;
 import 'package:screenshot/screenshot.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 double canvasHeight = 650;
 double canvasWidth = 500;
 Color canvasColor = Colors.grey.shade300;
 
 class Utils {
-  static downloadImage(ScreenshotController screenshotController) async {
+  static Future<void> downloadImage(
+      ScreenshotController screenshotController) async {
     // Capture screenshot
     Uint8List? capturedImageBytes = await screenshotController.capture();
 
@@ -22,6 +24,15 @@ class Utils {
 
       // Save image to file
       saveImage(image);
+    }
+  }
+
+  static Future<void> launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch $url';
     }
   }
 

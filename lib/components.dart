@@ -11,6 +11,23 @@ Expanded colorPalette(Color currentColor) {
   ));
 }
 
+Widget contributeButton() {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: ElevatedButton.icon(
+      onPressed: () {
+        Utils.launchURL('https://github.com/arinagrawal05/editnest_editor');
+      },
+      icon: const Icon(Icons.favorite),
+      label: Text('Contribute'),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+      ),
+    ),
+  );
+}
+
 Container fontShowcase(String value) {
   return Container(
       decoration: BoxDecoration(

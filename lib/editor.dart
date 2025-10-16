@@ -66,7 +66,12 @@ class _EditorScreenState extends State<EditorScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           history(),
-          canvasBoard(),
+          Column(
+            children: [
+              contributeButton(),
+              canvasBoard(),
+            ],
+          ),
           toolbar(context),
         ],
       ),
@@ -288,8 +293,8 @@ class _EditorScreenState extends State<EditorScreen> {
     );
   }
 
-  Container fontGrid() {
-    return Container(
+  Widget fontGrid() {
+    return SizedBox(
       width: double.infinity,
       child: GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
@@ -427,14 +432,14 @@ class _EditorScreenState extends State<EditorScreen> {
       },
       child: Container(
         // Container(
-        margin: const EdgeInsets.symmetric(vertical: 100),
+        margin: const EdgeInsets.symmetric(vertical: 10),
         height: canvasHeight,
         width: canvasWidth,
         child: Stack(
           children: [
             Screenshot(
               controller: screenshotController,
-              child: Container(
+              child: SizedBox(
                 // margin: const EdgeInsets.symmetric(vertical: 100),
                 height: canvasHeight,
                 width: canvasWidth,
@@ -457,7 +462,7 @@ class _EditorScreenState extends State<EditorScreen> {
                               color: canvasColor,
                               borderRadius: BorderRadius.circular(10)),
                     ),
-                    ...stackData.map(buildItemWidget).toList(),
+                    ...stackData.map(buildItemWidget),
                   ],
                 ),
               ),
